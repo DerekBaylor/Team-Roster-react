@@ -1,0 +1,42 @@
+{
+    "skip": {
+        "fullName": "John Shuster",
+        "hometown": "Superior, WI",
+        "position": "Skip",
+        "retired": false,
+        "firebaseKey": "4",
+        "uid": ""
+    },
+    "third": {
+        "fullName": "Chris Plys",
+        "hometown": "Duluth, MN",
+        "position": "Third",
+        "retired": false,
+        "firebaseKey": "3",
+        "uid": ""
+    },
+    "second": {
+        "fullName": "Matt Hamilton ",
+        "hometown": "(McFarland, WI",
+        "position": "Second",
+        "retired": false,
+        "firebaseKey": "2",
+        "uid": ""
+    },
+    "lead": {
+        "fullName": "John Landsteiner",
+        "hometown": "Duluth, MN",
+        "position": "Lead",
+        "retired": false,
+        "firebaseKey": "1",
+        "uid": ""
+    },
+    "alternate": {
+        "fullName": "Colin Hufman",
+        "hometown": "Fairbanks, AK",
+        "position": "Alternate",
+        "retired": false,
+        "firebaseKey": "5",
+        "uid": ""
+    }
+}
