@@ -1,38 +1,60 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import firebase from 'firebase';
+import 'firebase/auth';
+import { Container } from 'reactstrap';
+import Navigation from '../Components/Navigation';
+import Routes from '../routes';
+import SignIn from '../views/SignIn';
+import { getRoster } from '../api/data/rosterData';
+import RosterForm from '../Components/RosterForm';
 
 function Initialize() {
-  const [domWriting, setDomWriting] = useState('Nothing Here!');
+  const [user, setUser] = useState(null);
+  const [roster, setRoster] = useState({});
+  const [editItem, setEditItem] = useState({});
 
-  const handleClick = (e) => {
-    console.warn(`You clicked ${e.target.id}`);
-    setDomWriting(`You clicked ${e.target.id}! Check the Console!`);
-  };
+  // const handleClick = (e) => {
+  //   console.warn(`You clicked ${e.target.id}`);
+  // };
+
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged((authed) => {
+      if (authed) {
+        const userInfoObj = {
+          fullName: authed.displayName,
+          profileImage: authed.photoURL,
+          uid: authed.uid,
+        };
+        setUser(userInfoObj);
+      } else if (user || user === null) {
+        setUser(false);
+      }
+    });
+
+    getRoster().then(console.warn('Got Roster'));
+  }, []);
 
   return (
-    <div className="App">
-      <h2>INSIDE APP COMPONENT</h2>
-      <div>
-        <button
-          type="button"
-          id="this-button"
-          className="btn btn-info"
-          onClick={handleClick}
-        >
-          I am THIS button
-        </button>
-      </div>
-      <div>
-        <button
-          type="button"
-          id="that-button"
-          className="btn btn-primary mt-3"
-          onClick={handleClick}
-        >
-          I am THAT button
-        </button>
-      </div>
-      <h3>{domWriting}</h3>
-    </div>
+    <Container>
+      {user ? (
+        <>
+          <Navigation />
+          <h1>Welcome to the Shuster Roster!</h1>
+          <RosterForm
+            obj={editItem}
+            setRoster={setRoster}
+            setEditItem={setEditItem}
+          />
+          <Routes
+            roster={roster}
+            setRoster={setRoster}
+            setEditItem={setEditItem}
+          />
+        </>
+      ) : (
+        <SignIn />
+      )}
+    </Container>
   );
 }
 
