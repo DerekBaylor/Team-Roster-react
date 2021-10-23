@@ -5,13 +5,12 @@ import { Container } from 'reactstrap';
 import Navigation from '../Components/Navigation';
 import Routes from '../routes';
 import SignIn from '../views/SignIn';
-import { getRoster } from '../api/data/rosterData';
-import RosterForm from '../Components/RosterForm';
 
 function Initialize() {
   const [user, setUser] = useState(null);
-  const [roster, setRoster] = useState({});
   const [editItem, setEditItem] = useState({});
+
+  console.warn(editItem);
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((authed) => {
@@ -26,8 +25,6 @@ function Initialize() {
         setUser(false);
       }
     });
-
-    getRoster().then(setRoster);
   }, []);
 
   return (
@@ -36,16 +33,10 @@ function Initialize() {
         <>
           <Navigation />
           <h1>Welcome to the Shuster Roster!</h1>
-          <RosterForm
-            obj={editItem}
-            setRoster={setRoster}
-            setEditItem={setEditItem}
-          />
-          <Routes
-            roster={roster}
-            setRoster={setRoster}
-            setEditItem={setEditItem}
-          />
+          <Routes setEditItem={setEditItem} />
+          {/* {
+          players.map((player) => <h1>{player}</h1>)
+          } */}
         </>
       ) : (
         <SignIn />

@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { deletePlayer, updatePlayer } from '../api/data/rosterData';
 
-export default function Roster({ player, setRoster, setEditItem }) {
+export default function Roster({ player, setPlayer, setEditItem }) {
   const handleClick = (method) => {
     if (method === 'delete') {
-      deletePlayer(player.firebaseKey).then(setRoster);
+      deletePlayer(player.firebaseKey).then(setPlayer);
     } else {
-      updatePlayer({ ...player, retired: true }).then(setRoster);
+      updatePlayer({ ...player, retired: true }).then(setPlayer);
     }
   };
 
@@ -57,7 +57,7 @@ Roster.propTypes = {
     firebaseKey: PropTypes.string,
     uid: PropTypes.string,
   }).isRequired,
-  setRoster: PropTypes.func.isRequired,
+  setPlayer: PropTypes.func.isRequired,
   setEditItem: PropTypes.func,
 };
 

@@ -1,42 +1,42 @@
 {
-    "4": {
+    "-MmhBjL2Ntni9hv_my9x": {
         "fullName": "John Shuster",
         "hometown": "Superior, WI",
         "position": "Skip",
         "retired": false,
-        "firebaseKey": "4",
+        "firebaseKey": "-MmhBjL2Ntni9hv_my9x",
         "uid": ""
     },
-    "3": {
+    "-MmhCMBtYnaB5kXL3kgz": {
         "fullName": "Chris Plys",
         "hometown": "Duluth, MN",
         "position": "Third",
         "retired": false,
-        "firebaseKey": "3",
+        "firebaseKey": "-MmhCMBtYnaB5kXL3kgz",
         "uid": ""
     },
-    "2": {
+    "-MmhCMdDE2WSyzBJ4tHf": {
         "fullName": "Matt Hamilton ",
-        "hometown": "(McFarland, WI",
+        "hometown": "McFarland, WI",
         "position": "Second",
         "retired": false,
-        "firebaseKey": "2",
+        "firebaseKey": "-MmhCMdDE2WSyzBJ4tHf",
         "uid": ""
     },
-    "1": {
+    "-MmhCNA9li6LVLuu4qeZ": {
         "fullName": "John Landsteiner",
         "hometown": "Duluth, MN",
         "position": "Lead",
         "retired": false,
-        "firebaseKey": "1",
+        "firebaseKey": "-MmhCNA9li6LVLuu4qeZ",
         "uid": ""
     },
-    "5": {
+    "-MmhCNbKXjJwHvTggDnn": {
         "fullName": "Colin Hufman",
         "hometown": "Fairbanks, AK",
         "position": "Alternate",
         "retired": false,
-        "firebaseKey": "5",
+        "firebaseKey": "-MmhCNbKXjJwHvTggDnn",
         "uid": ""
     }
 }
