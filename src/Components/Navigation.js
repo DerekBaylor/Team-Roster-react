@@ -24,11 +24,11 @@ export default function Navigation() {
           Team
         </button>
         <button
-          onClick={() => history.push('/add')}
+          onClick={() => history.push('/addPlayer')}
           type="button"
           className="btn btn-light border border-dark"
         >
-          Add
+          Add Player
         </button>
         <button
           onClick={signOutUser}
