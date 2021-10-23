@@ -13,17 +13,13 @@ function Initialize() {
   const [roster, setRoster] = useState({});
   const [editItem, setEditItem] = useState({});
 
-  // const handleClick = (e) => {
-  //   console.warn(`You clicked ${e.target.id}`);
-  // };
-
   useEffect(() => {
     firebase.auth().onAuthStateChanged((authed) => {
       if (authed) {
         const userInfoObj = {
           fullName: authed.displayName,
           profileImage: authed.photoURL,
-          uid: authed.uid,
+          userId: authed.uid,
         };
         setUser(userInfoObj);
       } else if (user || user === null) {
@@ -31,7 +27,7 @@ function Initialize() {
       }
     });
 
-    getRoster().then(console.warn('Got Roster'));
+    getRoster().then(setRoster);
   }, []);
 
   return (

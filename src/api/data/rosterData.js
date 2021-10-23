@@ -5,14 +5,15 @@ const baseURL = firebaseConfig.databaseURL;
 
 const getRoster = () => new Promise((resolve, reject) => {
   axios
-    .get(`${baseURL}/players.json`)
+    .get(`${baseURL}/players.json?`)
+  // .get(`${baseURL}/players.json?orderBy="uid"&equalTo="${userId}"`)
     .then((playerArray) => resolve(playerArray))
     .catch(reject);
 });
 
-const addPlayer = (obj) => new Promise((resolve, reject) => {
+const addPlayer = (playerObj) => new Promise((resolve, reject) => {
   axios
-    .post(`${baseURL}/players.json`, obj)
+    .post(`${baseURL}/players.json`, playerObj)
     .then((response) => {
       axios
         .patch(`${baseURL}/players/${response.data.name}.json`, {
