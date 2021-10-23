@@ -10,7 +10,7 @@ const initialState = {
   uid: '',
 };
 
-export default function RosterForm({ obj, setRoster, setEditItem }) {
+export default function RosterForm({ obj, setPlayers, setEditItem }) {
   const [formInput, setFormInput] = useState(initialState);
 
   useEffect(() => {
@@ -41,13 +41,13 @@ export default function RosterForm({ obj, setRoster, setEditItem }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.firebaseKey) {
-      updatePlayer(formInput).then((roster) => {
-        setRoster(roster);
+      updatePlayer(formInput).then((player) => {
+        setPlayers(player);
         resetForm();
       });
     } else {
-      addPlayer({ ...formInput }).then((roster) => {
-        setRoster(roster);
+      addPlayer({ ...formInput }).then((player) => {
+        setPlayers(player);
         resetForm();
       });
     }
@@ -84,7 +84,7 @@ RosterForm.propTypes = {
     firebaseKey: PropTypes.string,
     uid: PropTypes.string,
   }),
-  setRoster: PropTypes.func.isRequired,
+  setPlayers: PropTypes.func.isRequired,
   setEditItem: PropTypes.func.isRequired,
 };
 

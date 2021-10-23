@@ -8,6 +8,10 @@ export default function Home() {
     getRoster().then(setPlayers);
   }, []);
 
+  useEffect(() => {
+    console.warn(players);
+  }, [players]);
+
   return (
     <>
       <h1>Home Page</h1>
@@ -17,11 +21,3 @@ export default function Home() {
     </>
   );
 }
-
-// import React from 'react';
-
-// export default function Home() {
-//   return (
-//     <h1>Home Page</h1>
-//   );
-// }

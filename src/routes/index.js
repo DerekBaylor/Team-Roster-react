@@ -5,21 +5,19 @@ import Home from '../views/Home';
 import Team from '../views/Team';
 import AddPlayer from '../views/AddPlayer';
 
-export default function Routes({ roster, setRoster, setEditItem }) {
+export default function Routes({ setEditItem }) {
   return (
     <>
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route
+          exact
+          path="/"
+          component={() => <Home setEditItem={setEditItem} />}
+        />
         <Route
           exact
           path="/team"
-          component={() => (
-            <Team
-              roster={roster}
-              setRoster={setRoster}
-              setEditItem={setEditItem}
-            />
-          )}
+          component={() => <Team setEditItem={setEditItem} />}
         />
         <Route exact path="/addPlayer" component={AddPlayer} />
       </Switch>
@@ -28,7 +26,5 @@ export default function Routes({ roster, setRoster, setEditItem }) {
 }
 
 Routes.propTypes = {
-  roster: PropTypes.arrayOf(PropTypes.object).isRequired,
-  setRoster: PropTypes.func.isRequired,
   setEditItem: PropTypes.func.isRequired,
 };
